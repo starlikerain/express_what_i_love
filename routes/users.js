@@ -8,17 +8,24 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/insertUser', function (req, res, next) {
-    res.locals.user = userServices.insertUser(req.query.firstName, req.query.lastName, req.query.age)
+    res.locals.user = userServices.insertUser(req.query.firstName, req.query.lastName, req.query.age);
     // render the error page
     res.status(200);
     res.render('user');
 });
 
 router.get('/listUser', function (req, res, next) {
-    res.locals.users = userServices.listUsers() // 返回一个 User.users Array
-    // render the error page
-    res.status(200);
-    res.render('users');
+    (async () => {
+        res.locals.users = await userServices.listUsers(); // 返回一个 User.users Array
+        res.status(200);
+        res.render('users');
+    })()
+        .then(res => {
+            console.log(res);
+        })
+        .catch(err => {
+            console.log(err);
+        });
 });
 
 

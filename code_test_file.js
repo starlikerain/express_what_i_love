@@ -9,6 +9,7 @@ const userSchema = new Schema({
 const uri = `mongodb://localhost:27017/what_i_love`;
 const connection = mongoose.connect(uri);
 const userModal = mongoose.model('user', userSchema);
+
 const db = mongoose.connection;
 
 db.on('open', () => {

@@ -1,9 +1,9 @@
-const User = require('../models/in_memo/User');
+const User = require('../models/mongoose/User');
 
-module.exports.insertUser = (firstName, lastName, age) => {
-    return User.insert(firstName, lastName, age)
+module.exports.insertUser = async (name, age) => {
+    return User.insert(name, age);
 };
 
-module.exports.listUsers = () => {
+module.exports.listUsers = async () => {
     return User.list();
 };
