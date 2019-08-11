@@ -9,7 +9,6 @@ const db = mongoose.connection;
 db.on('open', () => {
     console.log('来了！连接了！');
 });
-
 db.on('error', e => {
     console.log(`出错了！！！${e}`);
 });
