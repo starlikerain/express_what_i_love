@@ -28,5 +28,17 @@ router.get('/listUser', function (req, res, next) {
         });
 });
 
+router.get('/createSubscription', (req, res, next) => {
+    (async () => {
+        let sub = await userServices.createSubscription(req.query.userId, req.query.url);
+        res.send(sub.toString());
+    })()
+        .then(res => {
+            console.log(res);
+        })
+        .catch(err => {
+            console.log(err);
+        });
+});
 
 module.exports = router;
