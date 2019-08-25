@@ -1,14 +1,14 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+let createError = require('http-errors');
+let express = require('express');
+let path = require('path');
+let cookieParser = require('cookie-parser');
+let logger = require('morgan');
 require('./services/mongodb_connections');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+let indexRouter = require('./routes/index');
+let usersRouter = require('./routes/users');
 
-var app = express();
+let app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -42,8 +42,4 @@ app.use(function (err, req, res, next) {
 module.exports = app;
 
 
-<<<<<<< HEAD
 // 我在这里进行了修改「制造冲突3」
-=======
-// 我在这里进「我想要冲突一下」行了修改
->>>>>>> DIY_conflict_branch
